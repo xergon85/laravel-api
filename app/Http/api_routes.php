@@ -11,12 +11,12 @@ $api->version('v1', function ($api) {
 
 	// example of protected route
 	$api->get('protected', ['middleware' => ['api.auth'], function () {		
-		return \App\User::all();
+		return \App\Models\User::all();
     }]);
 
 	// example of free route
 	$api->get('free', function() {
-		return \App\User::all();
+		return \App\Models\User::all();
 	});
 
 });

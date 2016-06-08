@@ -1,6 +1,10 @@
-/.idea
-
 # Created by https://www.gitignore.io/api/composer,node,linux,osx,windows,laravel
+
+### Phpstorm ###
+/.idea
+.phpstorm.meta.php
+_ide_helper.php
+
 
 ### Composer ###
 composer.phar
