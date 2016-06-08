@@ -8,6 +8,7 @@ $api->version('v1', function ($api) {
 	$api->post('auth/signup', 'App\Api\V1\Controllers\AuthController@signup');
 	$api->post('auth/recovery', 'App\Api\V1\Controllers\AuthController@recovery');
 	$api->post('auth/reset', 'App\Api\V1\Controllers\AuthController@reset');
+    $api->get('auth/me', 'App\Api\V1\Controllers\AuthController@me');
 
 	// example of protected route
 	$api->get('protected', ['middleware' => ['api.auth'], function () {		

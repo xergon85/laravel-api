@@ -8,15 +8,13 @@ use Config;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
-use Dingo\Api\Routing\Helpers;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Password;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Dingo\Api\Exception\ValidationHttpException;
+use App\Api\V1\Transformers\UserTransformer;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
-    use Helpers;
 
     public function login(Request $request)
     {
@@ -123,5 +121,15 @@ class AuthController extends Controller
             default:
                 return $this->response->error('could_not_reset_password', 500);
         }
+    }
+
+    public function me() {
+        return $this->item($this->getAuthenticatedUser(), new UserTransformer() );
+    }
+
+    public function token(){
+        $token = JWTAuth::getToken();
+        
+        return $this->response->withArray(['token'=>$token]);
     }
 }
