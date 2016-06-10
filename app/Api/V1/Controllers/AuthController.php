@@ -18,10 +18,10 @@ class AuthController extends BaseController
 
     public function login(Request $request)
     {
-        $credentials = $request->only(['email', 'password']);
+        $credentials = $request->only(['name', 'password']);
 
         $validator = Validator::make($credentials, [
-            'email' => 'required',
+            'name' => 'required',
             'password' => 'required',
         ]);
 
