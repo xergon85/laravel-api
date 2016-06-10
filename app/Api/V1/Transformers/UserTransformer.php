@@ -19,7 +19,7 @@ class UserTransformer extends TransformerAbstract
     {
         return [
             'id' 	            => (int) $user->id,
-            'name'              => $user->name,
+            'name'              => ucfirst($user->name),
             'email'	            => $user->email
         ];
     }
